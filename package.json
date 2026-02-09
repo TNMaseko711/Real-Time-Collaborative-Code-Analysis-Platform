@@ -1,0 +1,12 @@
+{
+  "name": "realtime-collaborative-code-analysis-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "echo 'Use workspace-specific dev scripts'",
+    "format": "echo 'Add formatter tooling as needed'"
+  }
+}
