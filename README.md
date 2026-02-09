@@ -81,8 +81,21 @@ graph TD
 - Local dev via Docker Compose: Postgres + pgvector, Redis, API services, and frontend.
 - Production on AWS ECS Fargate with RDS Postgres + pgvector.
 
+## Quickstart (Local)
+1. Install dependencies per workspace (frontend, realtime-api).
+2. Start the realtime gateway:
+   - `npm --prefix apps/realtime-api run start`
+3. Start the analysis API:
+   - `uvicorn apps/analysis-api/main:app --reload --port 8000`
+4. Start the frontend:
+   - `npm --prefix apps/frontend run dev`
+
+## Docker Compose (Infra Services)
+```bash
+docker compose -f infra/docker/docker-compose.yml up --build
+```
+
 ## Next Steps
-- Scaffold apps and packages using the layout above.
-- Implement Yjs provider with WebRTC fallback to WebSocket.
+- Wire Yjs awareness to the NestJS gateway for presence and cursor events.
 - Build a minimal LSP aggregator for TypeScript + Python as a first milestone.
 - Add Tree-sitter analysis for JS/TS, then extend to Python and C#.
